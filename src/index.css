@@ -6,4 +6,40 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  font: 15px/1.45 var(--fonte);
+  letter-spacing: -0.011em;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  background-image: linear-gradient(118deg, var(--cor-fundo) 28%, var(--cor-feixe) 50%, var(--cor-fundo) 72%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cor-texto);
+  outline-offset: 2px;
+}
+
+.numero {
+  font-family: var(--fonte-numeros);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -1,0 +1,74 @@
+:root {
+  --fonte: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --fonte-numeros: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --raio-moldura: 30px;
+  --raio-painel: 22px;
+  --raio-botao: 12px;
+  --suave: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --cor-fundo: #e4e4e7;
+  --cor-feixe: #f6f6f7;
+  --cor-moldura: #f4f4f5;
+  --cor-painel: #ffffff;
+  --cor-caixa: #efeff1;
+  --cor-linha: #e4e4e7;
+  --cor-texto: #0b0b0c;
+  --cor-texto-invertido: #fafafa;
+  --cor-apagado: #71717a;
+  --cor-entrada: #15803d;
+  --cor-alerta: #b91c1c;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+
+  --calor-0: #ececee;
+  --calor-1: #d4d4d8;
+  --calor-2: #a1a1aa;
+  --calor-3: #52525b;
+  --calor-4: #0b0b0c;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --cor-fundo: #09090a;
+    --cor-feixe: #1f1f22;
+    --cor-moldura: #151517;
+    --cor-painel: #222225;
+    --cor-caixa: #2b2b2f;
+    --cor-linha: #303035;
+    --cor-texto: #ececee;
+    --cor-texto-invertido: #0b0b0c;
+    --cor-apagado: #8e8e96;
+    --cor-entrada: #4ade80;
+    --cor-alerta: #f87171;
+    --cor-sombra: rgba(0, 0, 0, 0.45);
+    --calor-0: #2b2b2f;
+    --calor-1: #45454c;
+    --calor-2: #6b6b74;
+    --calor-3: #a1a1aa;
+    --calor-4: #ececee;
+    color-scheme: dark;
+  }
+}
+
+:root[data-tema="escuro"] {
+  --cor-fundo: #09090a;
+  --cor-feixe: #1f1f22;
+  --cor-moldura: #151517;
+  --cor-painel: #222225;
+  --cor-caixa: #2b2b2f;
+  --cor-linha: #303035;
+  --cor-texto: #ececee;
+  --cor-texto-invertido: #0b0b0c;
+  --cor-apagado: #8e8e96;
+  --cor-entrada: #4ade80;
+  --cor-alerta: #f87171;
+  --cor-sombra: rgba(0, 0, 0, 0.45);
+  --calor-0: #2b2b2f;
+  --calor-1: #45454c;
+  --calor-2: #6b6b74;
+  --calor-3: #a1a1aa;
+  --calor-4: #ececee;
+  color-scheme: dark;
+}
