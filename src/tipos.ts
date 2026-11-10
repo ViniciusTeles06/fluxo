@@ -60,6 +60,8 @@ export interface ConfigCartao {
 
 export interface DadosFluxo {
   versao: 1
+  nome: string
+  exemplo: boolean
   lancamentos: Lancamento[]
   compras: CompraCartao[]
   contas: ContaDoMes[]
