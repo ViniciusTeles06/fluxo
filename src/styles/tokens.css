@@ -1,11 +1,14 @@
 :root {
   --fonte: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --fonte-numeros: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fonte-marca: "Instrument Serif", Georgia, serif;
 
   --raio-moldura: 30px;
   --raio-painel: 22px;
   --raio-botao: 12px;
   --suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --vidro: rgba(255, 255, 255, 0.62);
+  --vidro-borda: rgba(255, 255, 255, 0.9);
 
   --cor-fundo: #e4e4e7;
   --cor-feixe: #f6f6f7;
@@ -48,6 +51,8 @@
     --calor-2: #6b6b74;
     --calor-3: #a1a1aa;
     --calor-4: #ececee;
+    --vidro: rgba(34, 34, 37, 0.72);
+    --vidro-borda: rgba(255, 255, 255, 0.06);
     color-scheme: dark;
   }
 }
@@ -70,5 +75,7 @@
   --calor-2: #6b6b74;
   --calor-3: #a1a1aa;
   --calor-4: #ececee;
+  --vidro: rgba(34, 34, 37, 0.72);
+  --vidro-borda: rgba(255, 255, 255, 0.06);
   color-scheme: dark;
 }

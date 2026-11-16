@@ -12,6 +12,7 @@ body {
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
   background-image: linear-gradient(118deg, var(--cor-fundo) 28%, var(--cor-feixe) 50%, var(--cor-fundo) 72%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,6 +34,16 @@ textarea {
   font-family: var(--fonte-numeros);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
 }
 
 @media (prefers-reduced-motion: reduce) {
