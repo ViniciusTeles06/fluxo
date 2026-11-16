@@ -1,0 +1,323 @@
+.entrada {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  max-width: 440px;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--cor-texto);
+}
+
+.entrada-saldo {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  margin-top: -176px;
+  animation: entrada-surge 0.6s var(--suave) 0.15s both;
+  transition: opacity 0.45s, transform 0.45s;
+}
+
+.entrada-saldo small {
+  display: block;
+  color: var(--cor-apagado);
+  font-size: 13px;
+}
+
+.entrada-saldo strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.entrada-saldo strong span {
+  margin-right: 6px;
+  color: var(--cor-apagado);
+  font-size: 22px;
+}
+
+.entrada-saldo em {
+  font-style: normal;
+}
+
+.entrada-saldo i {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--cor-entrada);
+  font-size: 13px;
+  font-style: normal;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.desenhou .entrada-saldo i {
+  opacity: 1;
+}
+
+.entrada-grafico {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 50%;
+  height: 200px;
+  margin-top: -80px;
+  transform-origin: 0 0;
+  --traco-simples: 2.4;
+}
+
+.entrada-grafico svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.entrada-grade {
+  stroke: var(--cor-linha);
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  animation: entrada-aparece 0.9s 0.2s forwards;
+}
+
+.entrada-area {
+  fill: url(#entrada-area);
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+.entrada-linha,
+.entrada-simples {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.entrada-linha {
+  stroke: url(#entrada-traco);
+  stroke-width: 2;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  transition: opacity 0.35s 0.52s;
+}
+
+.entrada-simples {
+  stroke: currentColor;
+  stroke-width: var(--traco-simples);
+  opacity: 0;
+  transition: opacity 0.35s 0.52s;
+}
+
+.entrada-ponta {
+  fill: currentColor;
+  transition: opacity 0.3s;
+}
+
+.desenhou .entrada-area {
+  opacity: 1;
+}
+
+.encolheu .entrada-area,
+.encolheu .entrada-grade,
+.encolheu .entrada-ponta {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.35s;
+}
+
+.encolheu .entrada-linha {
+  opacity: 0;
+}
+
+.encolheu .entrada-simples {
+  opacity: 1;
+}
+
+.encolheu .entrada-saldo {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: none;
+}
+
+.entrada-marca {
+  position: absolute;
+  top: 27%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entrada-marca-linha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.entrada-vaga {
+  width: 60px;
+  height: 32px;
+}
+
+.entrada-marca h1 {
+  display: flex;
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--fonte-marca);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.entrada-marca h1 span {
+  display: inline-block;
+  transform: translateY(105%);
+}
+
+.encolheu .entrada-marca h1 span {
+  animation: entrada-letra 0.7s var(--suave) both;
+}
+
+.entrada-marca p {
+  margin: 18px 0 0;
+  color: var(--cor-apagado);
+  opacity: 0;
+}
+
+.encolheu .entrada-marca p {
+  animation: entrada-surge 0.7s var(--suave) 0.95s both;
+}
+
+.entrada-painel {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 20px;
+  padding: 22px 20px 18px;
+  border-radius: 28px;
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  box-shadow: 0 30px 80px -30px var(--cor-sombra);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.encolheu .entrada-painel {
+  pointer-events: auto;
+  animation: entrada-sobe 0.9s var(--suave) 1.15s both;
+}
+
+.entrada-painel h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.entrada-painel p {
+  margin: 6px 0 0;
+  color: var(--cor-apagado);
+  font-size: 14px;
+}
+
+.entrada-campo {
+  width: 100%;
+  height: 54px;
+  margin-top: 18px;
+  padding: 0 16px;
+  border: 1px solid var(--cor-linha);
+  border-radius: 16px;
+  background: var(--cor-painel);
+  font-size: 16px;
+}
+
+.entrada-botao {
+  width: 100%;
+  height: 54px;
+  margin-top: 12px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.18s;
+}
+
+.entrada-botao:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.entrada-botao.principal {
+  margin-top: 20px;
+  border: 0;
+  background: var(--cor-texto);
+  color: var(--cor-texto-invertido);
+}
+
+.entrada-campo + .entrada-botao.principal {
+  margin-top: 12px;
+}
+
+.entrada-botao.principal:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.entrada-botao.secundario {
+  border: 1px solid var(--cor-linha);
+  background: transparent;
+  color: var(--cor-texto);
+}
+
+.entrada-painel .entrada-aviso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 12.5px;
+}
+
+@keyframes entrada-surge {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes entrada-aparece {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes entrada-letra {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes entrada-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrada-marca h1 span,
+  .entrada-marca p,
+  .entrada-painel {
+    transform: none;
+    opacity: 1;
+  }
+}

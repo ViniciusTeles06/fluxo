@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { Entrada } from './components/Entrada'
 import { Icone } from './components/Icone'
 import { Logo } from './components/Logo'
 import { MenuPerfil } from './components/MenuPerfil'
 import { Pilulas } from './components/Pilulas'
+import { precisaDeEntrada } from './lib/entrada'
 import { posicaoDaPagina } from './lib/paginas'
+import { useDados } from './lib/useDados'
 import { usePagina } from './lib/usePagina'
 import { useTema } from './lib/useTema'
 import { ConteudoDaPagina } from './paginas/conteudo'
@@ -12,12 +15,24 @@ import './App.css'
 function App() {
   const [pagina, irPara] = usePagina()
   const [tema, trocarTema] = useTema()
+  const { dados, setDados, recomecar } = useDados()
   const [ultima, setUltima] = useState(pagina)
   const [direcao, setDirecao] = useState<'frente' | 'tras'>('frente')
 
   if (pagina !== ultima) {
     setDirecao(posicaoDaPagina(pagina) >= posicaoDaPagina(ultima) ? 'frente' : 'tras')
     setUltima(pagina)
+  }
+
+  if (precisaDeEntrada(dados)) {
+    return (
+      <Entrada
+        aoEntrar={(novos) => {
+          irPara('inicio')
+          setDados(novos)
+        }}
+      />
+    )
   }
 
   return (
@@ -29,7 +44,13 @@ function App() {
           <span className="selo">
             <Icone nome="cadeado" tamanho={14} /> Dados só neste aparelho
           </span>
-          <MenuPerfil nome="" tema={tema} aoTrocarTema={trocarTema} />
+          <MenuPerfil
+            nome={dados.nome}
+            exemplo={dados.exemplo}
+            tema={tema}
+            aoTrocarTema={trocarTema}
+            aoRecomecar={recomecar}
+          />
         </div>
       </header>
 
@@ -50,7 +71,7 @@ function App() {
 
       <main className="conteudo">
         <div key={pagina} className={`troca troca-${direcao}`}>
-          <ConteudoDaPagina id={pagina} />
+          <ConteudoDaPagina id={pagina} nome={dados.nome} />
         </div>
       </main>
     </div>

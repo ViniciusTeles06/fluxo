@@ -4,8 +4,10 @@ import { Icone } from './Icone'
 
 interface Props {
   nome: string
+  exemplo: boolean
   tema: Tema
   aoTrocarTema: (tema: Tema, origem: HTMLElement) => void
+  aoRecomecar: () => void
 }
 
 function iniciais(nome: string) {
@@ -19,7 +21,7 @@ function iniciais(nome: string) {
     .join('')
 }
 
-export function MenuPerfil({ nome, tema, aoTrocarTema }: Props) {
+export function MenuPerfil({ nome, exemplo, tema, aoTrocarTema, aoRecomecar }: Props) {
   const [aberto, setAberto] = useState(false)
   const caixa = useRef<HTMLDivElement>(null)
   const botao = useRef<HTMLButtonElement>(null)
@@ -66,7 +68,7 @@ export function MenuPerfil({ nome, tema, aoTrocarTema }: Props) {
           <div>
             <strong>{nome || 'Seu perfil'}</strong>
             <small>
-              <Icone nome="cadeado" tamanho={12} /> Dados só neste aparelho
+              <Icone nome="cadeado" tamanho={12} /> {exemplo ? 'Dados de exemplo' : 'Dados só neste aparelho'}
             </small>
           </div>
         </div>
@@ -80,6 +82,11 @@ export function MenuPerfil({ nome, tema, aoTrocarTema }: Props) {
             <Icone nome="lua" tamanho={16} /> Escuro
           </button>
         </div>
+        {exemplo && (
+          <button type="button" className="menu-acao" onClick={aoRecomecar}>
+            Começar com meus dados
+          </button>
+        )}
       </div>
     </div>
   )

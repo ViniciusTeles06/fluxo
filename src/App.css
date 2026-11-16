@@ -214,6 +214,19 @@
   font-weight: 500;
 }
 
+.menu-acao {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio-botao);
+  background: none;
+  color: var(--cor-texto);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .atalhos {
   display: flex;
   flex-direction: column;
