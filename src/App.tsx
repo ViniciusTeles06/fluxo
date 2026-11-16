@@ -71,7 +71,7 @@ function App() {
 
       <main className="conteudo">
         <div key={pagina} className={`troca troca-${direcao}`}>
-          <ConteudoDaPagina id={pagina} nome={dados.nome} />
+          <ConteudoDaPagina id={pagina} dados={dados} />
         </div>
       </main>
     </div>
